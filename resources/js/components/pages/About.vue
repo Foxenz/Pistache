@@ -1,6 +1,6 @@
 <template>
     <NavBar />
-    <h1 class="text-center">Home</h1>
+    <h1 class="text-center">About</h1>
 </template>
 
 <script setup>
