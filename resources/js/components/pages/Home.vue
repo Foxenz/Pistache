@@ -22,31 +22,16 @@
     <sections class="pictures">
         <h2 class="subtitle">Nos plats</h2>
         <div class="gallery">
-            <img src="https://picsum.photos/300/300" alt="Plat 1">
-            <img src="https://picsum.photos/300/300" alt="Plat 1">
-            <img src="https://picsum.photos/300/300" alt="Plat 1">
-            <img src="https://picsum.photos/300/300" alt="Plat 1">
+            <img src="https://picsum.photos/500/300" alt="Plat 1">
+            <img src="https://picsum.photos/500/300" alt="Plat 1">
+            <img src="https://picsum.photos/500/300" alt="Plat 1">
         </div>  
     </sections>
 
     <!-- Contact -->
     <section class="contact">
-        <h2 class="subtitle">Contacez nous</h2>
-        <form>
-            <div class="form-group">
-                <label for="name">Nom</label>
-                <input type="text" class="form-control" id="name" placeholder="Votre nom">
-            </div>
-            <div class="form-group">
-                <label for="email">Adresse email</label>
-                <input type="email" class="form-control" id="email" placeholder="Votre adresse email">
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea class="form-control" id="message" rows="3"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Envoyer</button>
-        </form>
+        <h2 class="subtitle">Contactez nous</h2>
+        <a class="button" href="Contact">Contact</a>
     </section>
 </template>
 
@@ -60,6 +45,18 @@
     .subtitle {
         font-size: 2rem;
         text-align: center;
+    }
+
+    .button {
+        display: block;
+        width: 200px;
+        margin: 0 auto;
+        padding: 1rem;
+        background-color: #f5a623;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 5px;
     }
 
     /* HERO */
@@ -86,15 +83,6 @@
         top: 65%;
         left: 50%;
         transform: translate(-50%, -50%);
-        display: block;
-        width: 200px;
-        margin: 0 auto;
-        padding: 1rem;
-        background-color: #f5a623;
-        color: white;
-        text-decoration: none;
-        text-align: center;
-        border-radius: 5px;
     }
 
     /* About */
@@ -119,7 +107,7 @@
     }
 
     .gallery img {
-        width: 300px;
+        width: 500px;
         height: 300px;
         margin-bottom: 2rem;
     }
