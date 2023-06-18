@@ -1,27 +1,12 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/"><img src="../../../public/assets/images/logo_pistache.png" alt="Logo"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-        <li class="nav-item active">
-            <router-link class="nav-link" to="Menu">Menu</router-link>
-        </li>
-        <li class="nav-item">
-            <router-link class="nav-link" to="About">About</router-link>
-        </li>
-        <li class="nav-item">
-            <router-link class="nav-link" to="Contact">Contact</router-link>
-        </li>
-        </ul>
-    </div>
-    </nav>
-</template>
-
-<style scoped>
-    img {
-        width: 100px;
-    } 
-</style>
+<nav class="flex items-center justify-between p-4">
+  <div class="flex items-center">
+    <a href="/"><img src="../../../public/assets/images/logo_pistache.png" alt="Logo" class="h-8 mr-2"></a>
+  </div>
+  <div class="flex items-center space-x-4">
+    <router-link class="hover:text-gray-300" to="Menu">Menu</router-link>
+    <router-link class="hover:text-gray-300" to="About">A propos</router-link>
+    <router-link class="hover:text-gray-300" to="Contact">Contact</router-link>
+  </div>
+</nav>
+  </template>
