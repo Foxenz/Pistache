@@ -22,4 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::controller(MenusController::class)->group(function () {
     Route::get('/menus/getAllMenus', 'getAllMenus');
+    Route::get('/menus/getMenusByCategorie/{id}', 'getMenusByCategorie');
 });

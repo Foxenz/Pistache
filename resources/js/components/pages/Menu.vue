@@ -1,5 +1,33 @@
 <template>
     <NavBar />
+    <!-- Filtre par categorie -->
+    <div class="flex justify-center mb-4">
+        <button
+            class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-l"
+            @click="fetchMenus"
+        >
+            Tous
+        </button>
+        <button
+            class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-r"
+            @click="fetchMenusByCategorie(1)"
+        >
+            Entrées
+        </button>
+        <button
+            class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-r"
+            @click="fetchMenusByCategorie(2)"
+        >
+            Plats
+        </button>
+        <button
+            class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-r"
+            @click="fetchMenusByCategorie(3)"
+        >
+            Desserts
+        </button>
+    </div>
+
     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <MenuCard
             v-for="menu in menus"
@@ -29,6 +57,14 @@ const menus = ref([]);
 // Fonction pour récupérer les repas de la base de donnée
 const fetchMenus = async () => {
     const response = await axios.get("/api/menus/getAllMenus");
+    menus.value = response.data;
+};
+
+// Fonction pour récupérer les repas par catégorie
+const fetchMenusByCategorie = async (categorie_id) => {
+    const response = await axios.get(
+        "/api/menus/getMenusByCategorie/" + categorie_id
+    );
     menus.value = response.data;
 };
 

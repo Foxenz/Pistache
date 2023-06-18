@@ -12,4 +12,10 @@ class MenusController extends Controller
         $menus = Menu::all();
         return response()->json($menus);
     }
+
+    public function getMenusByCategorie($categorie)
+    {
+        $menus = Menu::where('categorie_id', $categorie)->get();
+        return response()->json($menus);
+    }
 }
