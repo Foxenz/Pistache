@@ -18,6 +18,8 @@ return new class extends Migration
             $table->date('date');
             $table->unsignedBigInteger('categorie_id')->nullable();
             $table->foreign('categorie_id')->references('id')->on('categories');
+            $table->string('url_image');
+            $table->decimal('price')->nullable();
             $table->timestamps();
         });
     }
