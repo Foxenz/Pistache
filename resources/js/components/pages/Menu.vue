@@ -4,6 +4,6 @@
 </template>
 
 <script setup>
-    // Import des composants
-    import NavBar from "../NavBar.vue";
+// Import des composants
+import NavBar from "../NavBar.vue";
 </script>
