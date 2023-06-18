@@ -9,7 +9,8 @@ class MenusController extends Controller
 {
     public function getAllMenus()
     {
-        $menus = Menu::all();
+        // Récuperer tous les menus et les trier du plus récent au plus ancien
+        $menus = Menu::orderBy('date', 'desc')->get();
         return response()->json($menus);
     }
 
