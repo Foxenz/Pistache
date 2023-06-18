@@ -1,20 +1,21 @@
 <template>
-    <div>
-        <p>ID :</p>
-        <p>{{ id }}</p>
-        <p>Nom :</p>
-        <p>{{ name }}</p>
-        <p>Status :</p>
-        <p>{{ status }}</p>
-        <p>Créé le :</p>
-        <p>{{ date }}</p>
-        <p>Image :</p>
-        <img :src="url_image" :alt="name" />
-        <p>Prix :</p>
-        <p>{{ price }}</p>
-    </div>
+    <div class="test w-full max-w-xs mx-auto p-4">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden card">
+            <img
+                :src="url_image"
+                :alt="name"
+                class="w-full h-40 object-cover"
+            />
+            <div class="p-4">
+                <h3 class="text-xl font-semibold mb-2">{{ name }}</h3>
+                <p class="text-gray-700 mb-2">{{ price }} €</p>
 
-    <br />
+                <p v-if="categorie_id == 1" class="text-gray-500">Entrée</p>
+                <p v-if="categorie_id == 2" class="text-gray-500">Plat</p>
+                <p v-if="categorie_id == 3" class="text-gray-500">Dessert</p>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script setup>
@@ -36,6 +37,10 @@ const props = defineProps({
         type: String,
         required: true,
     },
+    categorie_id: {
+        type: Number,
+        required: true,
+    },
     url_image: {
         type: String,
         required: true,
@@ -46,3 +51,12 @@ const props = defineProps({
     },
 });
 </script>
+
+<style scoped>
+.card {
+    transition: transform 0.2s;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+</style>

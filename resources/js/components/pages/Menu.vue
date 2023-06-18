@@ -1,6 +1,6 @@
 <template>
     <NavBar />
-    <section id="menu">
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <MenuCard
             v-for="menu in menus"
             :key="menu.id"
@@ -8,6 +8,7 @@
             :name="menu.name"
             :status="menu.status"
             :date="menu.date"
+            :categorie_id="menu.categorie_id"
             :url_image="menu.url_image"
             :price="menu.price"
         />
