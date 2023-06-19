@@ -22,7 +22,7 @@
 
                 <!-- Administration -->
                 <router-link
-                    to="login"
+                    to="/menu-admin"
                     class="btn-admin bg-white text-gray-900 font-semibold py-2 px-4 rounded-md hover:bg-gray-100"
                 >
                     Administration

@@ -15,6 +15,20 @@
             <router-link class="hover:text-gray-300" to="/category"
                 >Catégorie</router-link
             >
+            <!-- Bouton de déconnexion -->
+            <button class="hover:text-gray-300" @click="logout">
+                Déconnexion
+            </button>
         </div>
     </nav>
 </template>
+
+<script setup>
+import router from "../router";
+
+// Déconnecte l'utilisateur
+const logout = () => {
+    sessionStorage.removeItem("token");
+    router.push("/login");
+};
+</script>

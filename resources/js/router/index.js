@@ -38,17 +38,29 @@ const routes = [
         path: "/menu-admin",
         name: "MenuAdmin",
         component: MenuAdmin,
+        meta: {
+            requiresAuth: true,
+        },
     },
     {
         path: "/category",
         name: "Category",
         component: Category,
+        meta: {
+            requiresAuth: true,
+        },
     },
 ];
 
 const router = createRouter({
     history: createWebHistory(),
     routes,
+});
+
+router.beforeEach((to, from) => {
+    if (to.meta.requiresAuth && !sessionStorage.getItem("token")) {
+        return "/login";
+    }
 });
 
 export default router;
