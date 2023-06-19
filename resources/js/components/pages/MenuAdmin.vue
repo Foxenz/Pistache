@@ -15,6 +15,11 @@
         >
         </MenuCard>
     </section>
+
+    <!-- Si aucun menu afficher un message au centre de la page -->
+    <div v-if="menus.length === 0" class="flex justify-center">
+        <p class="text-2xl">Plus aucun menu à afficher</p>
+    </div>
 </template>
 
 <script setup>
