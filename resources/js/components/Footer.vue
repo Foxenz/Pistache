@@ -21,13 +21,15 @@
                 </p>
 
                 <!-- Administration -->
-                <a
-                    href="#"
+                <router-link
+                    to="login"
                     class="btn-admin bg-white text-gray-900 font-semibold py-2 px-4 rounded-md hover:bg-gray-100"
                 >
                     Administration
-                </a>
+                </router-link>
             </div>
         </div>
     </footer>
 </template>
+
+<script setup></script>

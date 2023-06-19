@@ -4,6 +4,7 @@ import Home from "../components/pages/Home.vue";
 import Menu from "../components/pages/Menu.vue";
 import About from "../components/pages/About.vue";
 import Contact from "../components/pages/Contact.vue";
+import Login from "../components/pages/Login.vue";
 
 const routes = [
     {
@@ -25,7 +26,12 @@ const routes = [
         path: "/contact",
         name: "Contact",
         component: Contact,
-    }
+    },
+    {
+        path: "/login",
+        name: "Login",
+        component: Login,
+    },
 ];
 
 const router = createRouter({
