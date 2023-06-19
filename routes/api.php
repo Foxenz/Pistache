@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\MenusController;
+use App\Http\Controllers\API\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,9 @@ use App\Http\Controllers\API\MenusController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::controller(AuthController::class)->group(function () {
+    Route::post('/auth/login', 'login');
 });
-
 
 Route::controller(MenusController::class)->group(function () {
     Route::get('/menus/getAllMenus', 'getAllMenus');

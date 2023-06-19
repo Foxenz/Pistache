@@ -5,6 +5,7 @@ import Menu from "../components/pages/Menu.vue";
 import About from "../components/pages/About.vue";
 import Contact from "../components/pages/Contact.vue";
 import Login from "../components/pages/Login.vue";
+import Dashboard from "../components/pages/Dashboard.vue";
 
 const routes = [
     {
@@ -31,6 +32,11 @@ const routes = [
         path: "/login",
         name: "Login",
         component: Login,
+    },
+    {
+        path: "/dashboard",
+        name: "Dashboard",
+        component: Dashboard,
     },
 ];
 
