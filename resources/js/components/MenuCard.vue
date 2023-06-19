@@ -16,28 +16,28 @@
             </div>
 
             <!-- Boutons archiver, editer, supprimer seulement visible quand on est dans le menu admin -->
-            <div v-if="isMenuAdmin">
+            <div v-if="isMenuAdmin" class="flex">
                 <button
                     @click="showConfirmation('archive', id)"
                     v-show="statusButton == 'published'"
-                    class="w-full bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none"
+                    class="flex-1 bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none"
                 >
                     Archiver
                 </button>
                 <button
                     @click="showConfirmation('publish', id)"
                     v-show="statusButton == 'archived'"
-                    class="w-full bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none"
+                    class="flex-1 bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none"
                 >
                     Publier
                 </button>
                 <button
-                    class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none"
+                    class="flex-1 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none"
                 >
                     Editer
                 </button>
                 <button
-                    class="w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none"
+                    class="flex-1 bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none"
                 >
                     Supprimer
                 </button>
@@ -162,13 +162,3 @@ const archiveMenu = (id) => {
         });
 };
 </script>
-
-<style scoped>
-.card {
-    transition: transform 0.2s;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-</style>
