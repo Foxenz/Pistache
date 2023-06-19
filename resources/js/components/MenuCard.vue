@@ -14,12 +14,33 @@
                 <p v-if="categorie_id == 2" class="text-gray-500">Plat</p>
                 <p v-if="categorie_id == 3" class="text-gray-500">Dessert</p>
             </div>
+
+            <!-- Boutons archiver, editer, supprimer -->
+            <div v-if="isMenuAdmin">
+                <button
+                    class="w-full bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none"
+                >
+                    Archiver
+                </button>
+                <button
+                    class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none"
+                >
+                    Editer
+                </button>
+                <button
+                    class="w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none"
+                >
+                    Supprimer
+                </button>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, ref } from "vue";
+import router from "../router";
+
 const props = defineProps({
     id: {
         type: Number,
@@ -50,6 +71,9 @@ const props = defineProps({
         required: true,
     },
 });
+const isMenuAdmin = ref(
+    router.currentRoute.value.fullPath.includes("menu-admin") ? true : false
+);
 </script>
 
 <style scoped>

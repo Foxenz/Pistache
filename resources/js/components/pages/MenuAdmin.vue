@@ -12,7 +12,8 @@
             :categorie_id="menu.categorie_id"
             :url_image="menu.url_image"
             :price="menu.price"
-        />
+        >
+        </MenuCard>
     </section>
 </template>
 
