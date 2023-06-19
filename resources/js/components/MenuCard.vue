@@ -196,7 +196,7 @@ const deleteMenu = (id) => {
     axios
         .delete("/api/menus/deleteMenu/" + id)
         .then((response) => {
-            console.log(response);
+            router.go();
         })
         .catch((error) => {
             console.log(error);
