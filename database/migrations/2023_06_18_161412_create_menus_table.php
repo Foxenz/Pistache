@@ -19,7 +19,6 @@ return new class extends Migration
             $table->unsignedBigInteger('categorie_id')->nullable();
             $table->foreign('categorie_id')->references('id')->on('categories');
             $table->string('url_image');
-            $table->integer('price');
             $table->timestamps();
         });
     }

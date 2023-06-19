@@ -18,7 +18,6 @@ class MenuSeeder extends Seeder
             'date' => '2021-06-18',
             'categorie_id' => 1,
             'url_image' => '/assets/images/menus/bruschetta-chorizo-poivron.avif',
-            'price' => 11,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -29,7 +28,6 @@ class MenuSeeder extends Seeder
             'date' => '2022-04-21',
             'categorie_id' => 1,
             'url_image' => '/assets/images/menus/salade-chevre-nectarine-tomate.avif',
-            'price' => 12,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -40,7 +38,6 @@ class MenuSeeder extends Seeder
             'date' => '2023-03-22',
             'categorie_id' => 2,
             'url_image' => '/assets/images/menus/pizza-turque-boeuf-hache-persil.avif',
-            'price' => 16,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -51,7 +48,6 @@ class MenuSeeder extends Seeder
             'date' => '2022-04-21',
             'categorie_id' => 2,
             'url_image' => '/assets/images/menus/cuisse-poulet-confite-salade-automne.avif',
-            'price' => 15,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -62,7 +58,6 @@ class MenuSeeder extends Seeder
             'date' => '2023-01-03',
             'categorie_id' => 3,
             'url_image' => '/assets/images/menus/tiramisu.jpeg',
-            'price' => 7,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -73,7 +68,6 @@ class MenuSeeder extends Seeder
             'date' => '2022-12-03',
             'categorie_id' => 3,
             'url_image' => '/assets/images/menus/fondant-au-chocolat.jpeg',
-            'price' => 8,
             'created_at' => now(),
             'updated_at' => now(),
         ]);

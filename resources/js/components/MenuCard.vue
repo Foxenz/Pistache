@@ -8,11 +8,29 @@
             />
             <div class="p-4">
                 <h3 class="text-xl font-semibold mb-2">{{ name }}</h3>
-                <p class="text-gray-700 mb-2">{{ price }} €</p>
+                <p v-if="isMenuAdmin" class="text-gray-500">
+                    {{ statusButton }}
+                </p>
+                <p v-if="isMenuAdmin" class="text-gray-500">{{ date }}</p>
 
-                <p v-if="categorie_id == 1" class="text-gray-500">Entrée</p>
-                <p v-if="categorie_id == 2" class="text-gray-500">Plat</p>
-                <p v-if="categorie_id == 3" class="text-gray-500">Dessert</p>
+                <p
+                    v-if="categorie_id == 1 && !isMenuAdmin"
+                    class="text-gray-500"
+                >
+                    Entrée
+                </p>
+                <p
+                    v-if="categorie_id == 2 && !isMenuAdmin"
+                    class="text-gray-500"
+                >
+                    Plat
+                </p>
+                <p
+                    v-if="categorie_id == 3 && !isMenuAdmin"
+                    class="text-gray-500"
+                >
+                    Dessert
+                </p>
             </div>
 
             <!-- Boutons archiver, editer, supprimer seulement visible quand on est dans le menu admin -->
