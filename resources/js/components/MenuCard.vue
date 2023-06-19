@@ -37,6 +37,7 @@
                     Editer
                 </button>
                 <button
+                    @click="showConfirmation('delete', id)"
                     class="flex-1 bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none"
                 >
                     Supprimer
@@ -118,8 +119,16 @@ let menuId;
 
 // Fonction pour afficher la fenêtre de confirmation
 const showConfirmation = (action, id) => {
-    confirmationAction.value = action === "archive" ? "archiver" : "publier";
-    menuId = id;
+    if (action === "archive") {
+        confirmationAction.value = "archiver";
+        menuId = id;
+    } else if (action === "publish") {
+        confirmationAction.value = "publier";
+        menuId = id;
+    } else if (action === "delete") {
+        confirmationAction.value = "supprimer";
+        menuId = id;
+    }
     showDialog.value = true;
 };
 
@@ -135,6 +144,8 @@ const confirmAction = () => {
         archiveMenu(menuId);
     } else if (confirmationAction.value === "publier") {
         publishMenu(menuId);
+    } else if (confirmationAction.value === "supprimer") {
+        deleteMenu(menuId);
     }
 };
 
@@ -156,6 +167,18 @@ const archiveMenu = (id) => {
         .put("/api/menus/archiveMenu/" + id)
         .then((response) => {
             statusButton.value = "archived";
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+};
+
+// Fonction pour supprimer un menu
+const deleteMenu = (id) => {
+    axios
+        .delete("/api/menus/deleteMenu/" + id)
+        .then((response) => {
+            console.log(response);
         })
         .catch((error) => {
             console.log(error);

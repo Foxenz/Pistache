@@ -25,4 +25,5 @@ Route::controller(MenusController::class)->group(function () {
     Route::get('/menus/getMenusByCategorie/{id}', 'getMenusByCategorie');
     Route::put('/menus/publishMenu/{id}', 'publishMenu');
     Route::put('/menus/archiveMenu/{id}', 'archiveMenu');
+    Route::delete('/menus/deleteMenu/{id}', 'deleteMenu');
 });

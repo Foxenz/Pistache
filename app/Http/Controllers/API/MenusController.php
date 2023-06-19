@@ -37,4 +37,12 @@ class MenusController extends Controller
         $menu->save();
         return response()->json($menu);
     }
+
+    public function deleteMenu($id)
+    {
+        // Supprimer le menu dont l'id est passé en paramètre
+        $menu = Menu::find($id);
+        $menu->delete();
+        return response()->json($menu);
+    }
 }
