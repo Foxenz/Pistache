@@ -14,7 +14,7 @@ class MenuSeeder extends Seeder
     {
         DB::table('menus')->insert([
             'name' => 'Bruschetta chorizo & poivron',
-            'status' => 'publish',
+            'status' => 'published',
             'date' => '2021-06-18',
             'categorie_id' => 1,
             'url_image' => '/assets/images/menus/bruschetta-chorizo-poivron.avif',
@@ -25,7 +25,7 @@ class MenuSeeder extends Seeder
 
         DB::table('menus')->insert([
             'name' => 'Salade de chèvre, nectarine & tomate',
-            'status' => 'publish',
+            'status' => 'published',
             'date' => '2022-04-21',
             'categorie_id' => 1,
             'url_image' => '/assets/images/menus/salade-chevre-nectarine-tomate.avif',
@@ -36,7 +36,7 @@ class MenuSeeder extends Seeder
 
         DB::table('menus')->insert([
             'name' => 'Pizza turque au bœuf haché & persil',
-            'status' => 'publish',
+            'status' => 'published',
             'date' => '2023-03-22',
             'categorie_id' => 2,
             'url_image' => '/assets/images/menus/pizza-turque-boeuf-hache-persil.avif',
@@ -47,7 +47,7 @@ class MenuSeeder extends Seeder
 
         DB::table('menus')->insert([
             'name' => "Cuisse de poulet confite et salade d'automne",
-            'status' => 'publish',
+            'status' => 'published',
             'date' => '2022-04-21',
             'categorie_id' => 2,
             'url_image' => '/assets/images/menus/cuisse-poulet-confite-salade-automne.avif',
@@ -58,7 +58,7 @@ class MenuSeeder extends Seeder
 
         DB::table('menus')->insert([
             'name' => "Tiramisu",
-            'status' => 'publish',
+            'status' => 'published',
             'date' => '2023-01-03',
             'categorie_id' => 3,
             'url_image' => '/assets/images/menus/tiramisu.jpeg',
@@ -69,7 +69,7 @@ class MenuSeeder extends Seeder
 
         DB::table('menus')->insert([
             'name' => "Fondant au chocolat",
-            'status' => 'publish',
+            'status' => 'published',
             'date' => '2022-12-03',
             'categorie_id' => 3,
             'url_image' => '/assets/images/menus/fondant-au-chocolat.jpeg',
