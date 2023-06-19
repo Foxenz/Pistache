@@ -5,7 +5,8 @@ import Menu from "../components/pages/Menu.vue";
 import About from "../components/pages/About.vue";
 import Contact from "../components/pages/Contact.vue";
 import Login from "../components/pages/Login.vue";
-import Dashboard from "../components/pages/Dashboard.vue";
+import MenuAdmin from "../components/pages/MenuAdmin.vue";
+import Category from "../components/pages/Category.vue";
 
 const routes = [
     {
@@ -34,9 +35,14 @@ const routes = [
         component: Login,
     },
     {
-        path: "/dashboard",
-        name: "Dashboard",
-        component: Dashboard,
+        path: "/menu-admin",
+        name: "MenuAdmin",
+        component: MenuAdmin,
+    },
+    {
+        path: "/category",
+        name: "Category",
+        component: Category,
     },
 ];
 

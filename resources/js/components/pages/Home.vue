@@ -9,7 +9,7 @@
             class="hero-content text-white text-center flex flex-col items-center"
         >
             <h1 class="text-5xl mb-8">Pistache</h1>
-            <router-link to="Menu">
+            <router-link to="/menu">
                 <button
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 >
@@ -56,7 +56,7 @@
     <!-- Contact -->
     <section class="contact">
         <h2 class="text-2xl font-bold">Contactez-nous</h2>
-        <router-link to="Contact">
+        <router-link to="/contact">
             <button
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             >

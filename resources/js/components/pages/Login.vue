@@ -63,7 +63,7 @@ const login = async () => {
             if (response.data.success) {
                 sessionStorage.setItem("token", response.data.token);
                 sessionStorage.setItem("id_user", response.data.user.id);
-                router.push("Dashboard");
+                router.push("/menu-admin");
             } else {
                 error.value = response.data.message;
             }
