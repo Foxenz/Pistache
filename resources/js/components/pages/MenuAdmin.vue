@@ -30,7 +30,7 @@ const menus = ref([]);
 
 // Fonction pour récupérer les repas de la base de donnée
 const fetchMenus = async () => {
-    const response = await axios.get("/api/menus/getAllMenus");
+    const response = await axios.get("/api/menus/getAllMenusForAdmin");
     menus.value = response.data;
 };
 

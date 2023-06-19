@@ -203,3 +203,12 @@ const deleteMenu = (id) => {
         });
 };
 </script>
+
+<style scoped>
+.card {
+    transition: transform 0.2s;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+</style>

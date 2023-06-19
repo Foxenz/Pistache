@@ -9,6 +9,12 @@ class MenusController extends Controller
 {
     public function getAllMenus()
     {
+        // Récuperer tous les menus avec le status "published"
+        $menus = Menu::where('status', 'published')->get();
+        return response()->json($menus);
+    }
+    public function getAllMenusForAdmin()
+    {
         // Récuperer tous les menus et les trier du plus récent au plus ancien
         $menus = Menu::orderBy('date', 'desc')->get();
         return response()->json($menus);
@@ -16,7 +22,8 @@ class MenusController extends Controller
 
     public function getMenusByCategorie($categorie)
     {
-        $menus = Menu::where('categorie_id', $categorie)->get();
+        // Récuperer tous les menus avec le status "published" et dont la catégorie est passée en paramètre
+        $menus = Menu::where('status', 'published')->where('categorie_id', $categorie)->get();
         return response()->json($menus);
     }
 
