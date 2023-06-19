@@ -5,7 +5,7 @@
                 ><img
                     src="../../../public/assets/images/logo_pistache.png"
                     alt="Logo"
-                    class="h-8 mr-2"
+                    class="h-12 mr-2"
             /></a>
         </div>
         <div class="flex items-center space-x-4">

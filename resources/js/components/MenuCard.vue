@@ -122,10 +122,6 @@ const props = defineProps({
         type: String,
         required: true,
     },
-    price: {
-        type: Number,
-        required: true,
-    },
 });
 const isMenuAdmin = ref(
     router.currentRoute.value.fullPath.includes("menu-admin") ? true : false
