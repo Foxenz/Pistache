@@ -9,6 +9,14 @@ use App\Models\MenuHasCategory;
 
 class CategoriesController extends Controller
 {
+    public function getAllCategories()
+    {
+        // Récuperer toutes les catégories
+        $categories = Category::all();
+
+        return response()->json($categories);
+    }
+
     public function getCategoriesWithMenuId($id)
     {
         // Récuperer les catégories qui ont le menu_id passé en paramètre
