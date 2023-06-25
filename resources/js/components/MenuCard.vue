@@ -13,24 +13,17 @@
                 </p>
                 <p v-if="isMenuAdmin" class="text-gray-500">{{ date }}</p>
 
-                <p
-                    v-if="categorie_id == 1 && !isMenuAdmin"
-                    class="text-gray-500"
-                >
-                    Entrée
-                </p>
-                <p
-                    v-if="categorie_id == 2 && !isMenuAdmin"
-                    class="text-gray-500"
-                >
-                    Plat
-                </p>
-                <p
-                    v-if="categorie_id == 3 && !isMenuAdmin"
-                    class="text-gray-500"
-                >
-                    Dessert
-                </p>
+                <!-- Affichage des categories en appelant la fonction getCategoriesWithMenuId -->
+                <div class="flex flex-wrap mt-2">
+                    <span
+                        v-for="categorie in categoriesOfMenu"
+                        :key="categorie.id"
+                        class="bg-gray-200 rounded-full text-xs font-semibold text-gray-700 mr-2 mb-2 px-3 py-1"
+                    >
+                        {{ categorie }}
+                    </span>
+                </div>
+                
             </div>
 
             <!-- Boutons archiver, editer, supprimer seulement visible quand on est dans le menu admin -->
@@ -114,10 +107,6 @@ const props = defineProps({
         type: String,
         required: true,
     },
-    categorie_id: {
-        type: Number,
-        required: true,
-    },
     url_image: {
         type: String,
         required: true,
@@ -129,6 +118,7 @@ const isMenuAdmin = ref(
 const statusButton = ref(props.status);
 const showDialog = ref(false);
 const confirmationAction = ref("");
+const categoriesOfMenu = ref([]);
 let menuId;
 
 // Fonction pour afficher la fenêtre de confirmation
@@ -149,6 +139,14 @@ const showConfirmation = (action, id) => {
 // Fonction pour annuler la confirmation
 const cancelConfirmation = () => {
     showDialog.value = false;
+};
+
+// Fonction pour récupérer les catégories des repas de la base de donnée par menu
+const getCategoriesWithMenuId = async (menuId) => {
+    const response = await axios.get(
+        "/api/categories/getCategoriesWithMenuId/" + menuId
+    );
+    categoriesOfMenu.value = response.data;
 };
 
 // Fonction pour confirmer l'action
@@ -198,6 +196,8 @@ const deleteMenu = (id) => {
             console.log(error);
         });
 };
+
+getCategoriesWithMenuId(props.id);
 </script>
 
 <style scoped>

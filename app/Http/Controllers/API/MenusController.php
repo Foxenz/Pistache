@@ -20,13 +20,6 @@ class MenusController extends Controller
         return response()->json($menus);
     }
 
-    public function getMenusByCategorie($categorie)
-    {
-        // Récuperer tous les menus avec le status "published" et dont la catégorie est passée en paramètre
-        $menus = Menu::where('status', 'published')->where('categorie_id', $categorie)->get();
-        return response()->json($menus);
-    }
-
     public function publishMenu($id)
     {
         // Modifier le champs status en "published" pour le menu dont l'id est passé en paramètre

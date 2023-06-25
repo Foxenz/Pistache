@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\MenusController;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +24,11 @@ Route::controller(AuthController::class)->group(function () {
 Route::controller(MenusController::class)->group(function () {
     Route::get('/menus/getAllMenus', 'getAllMenus');
     Route::get('/menus/getAllMenusForAdmin', 'getAllMenusForAdmin');
-    Route::get('/menus/getMenusByCategorie/{id}', 'getMenusByCategorie');
     Route::put('/menus/publishMenu/{id}', 'publishMenu');
     Route::put('/menus/archiveMenu/{id}', 'archiveMenu');
     Route::delete('/menus/deleteMenu/{id}', 'deleteMenu');
+});
+
+Route::controller(CategoriesController::class)->group(function () {
+    Route::get('/categories/getCategoriesWithMenuId/{id}', 'getCategoriesWithMenuId');
 });
