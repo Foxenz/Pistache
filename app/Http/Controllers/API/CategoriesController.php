@@ -54,4 +54,13 @@ class CategoriesController extends Controller
         $category->save();
         return response()->json($category);
     }
+
+    public function updateCategory(Request $request)
+    {
+        // Modifier le nom de la catégorie
+        $category = Category::find($request->id);
+        $category->name = $request->name;
+        $category->save();
+        return response()->json($category);
+    }
 }

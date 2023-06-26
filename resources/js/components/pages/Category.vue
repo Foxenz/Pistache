@@ -36,6 +36,7 @@
             <div class="flex justify-between">
                 <button
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    @click="showConfirmation('edit', category.id)"
                 >
                     Modifier
                 </button>
@@ -57,9 +58,17 @@
     >
         <div class="bg-white p-6 rounded shadow-lg">
             <h2 class="text-lg font-semibold mb-4">Confirmation</h2>
-            <p>
+            <input
+                v-if="confirmationAction === 'modifier'"
+                type="text"
+                class="border border-gray-400 rounded-md p-2 w-80"
+                placeholder="Nouveau nom de la catégorie"
+                v-model="editName"
+            />
+            <p class="mt-3">
                 Êtes-vous sûr de vouloir {{ confirmationAction }} la catégorie ?
             </p>
+
             <div class="mt-4 flex justify-end">
                 <button
                     @click="cancelConfirmation"
@@ -69,6 +78,9 @@
                 </button>
                 <button
                     @click="confirmAction"
+                    :disabled="
+                        confirmationAction == 'modifier' && editName === ''
+                    "
                     class="ml-2 bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none"
                 >
                     Confirmer
@@ -88,6 +100,9 @@ const categories = ref([]);
 const showDialog = ref(false);
 const confirmationAction = ref("");
 const categoryName = ref("");
+const editName = ref("");
+const errorMessage = ref(null);
+
 let categoryId = null;
 
 // Fonction pour récupérer les catégories la base de donnée
@@ -103,7 +118,11 @@ const showConfirmation = (action, id) => {
         categoryId = id;
     } else if (action === "create") {
         confirmationAction.value = "ajouter";
+    } else if (action === "edit") {
+        confirmationAction.value = "modifier";
+        categoryId = id;
     }
+
     showDialog.value = true;
 };
 
@@ -119,6 +138,8 @@ const confirmAction = () => {
         deleteCategory(categoryId);
     } else if (confirmationAction.value === "ajouter") {
         createCategory(categoryName);
+    } else if (confirmationAction.value === "modifier") {
+        editCategory(categoryId, editName.value);
     }
 };
 
@@ -134,6 +155,19 @@ const createCategory = async (categoryName) => {
         .post("/api/categories/createCategory/" + categoryName.value)
         .then((response) => {
             categoryName.value = "";
+            fetchCategories();
+        });
+};
+
+// Fonction pour modifier une catégorie
+const editCategory = async (id, name) => {
+    await axios
+        .put("/api/categories/updateCategory/", {
+            id: id,
+            name: name,
+        })
+        .then((response) => {
+            editName.value = "";
             fetchCategories();
         });
 };
