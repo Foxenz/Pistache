@@ -15,7 +15,7 @@
                 <p v-if="isMenuAdmin" class="text-gray-500">{{ date }}</p>
 
                 <!-- Affichage des categories en appelant la fonction getCategoriesWithMenuId -->
-                <div class="flex flex-wrap mt-2">
+                <div class="flex flex-wrap mt-2" v-if="!isMenuAdmin">
                     <span
                         v-for="categorie in categoriesOfMenu"
                         :key="categorie.id"

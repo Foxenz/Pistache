@@ -14,7 +14,7 @@ class MenuSeeder extends Seeder
     {
         DB::table('menus')->insert([
             'name' => 'Bruschetta chorizo & poivron',
-            'description' => 'Chorizo, poivron, tomate, mozzarella, oignon, ail, basilic, huile d\'olive, sel, poivre, pain de campagne',
+            'description' => 'Chorizo, poivron, tomate, mozzarella, oignon, ail, basilic, huile d\'olive',
             'status' => 'published',
             'date' => '2021-06-18',
             'url_image' => '/assets/images/menus/bruschetta-chorizo-poivron.avif',
@@ -33,8 +33,8 @@ class MenuSeeder extends Seeder
         ]);
 
         DB::table('menus')->insert([
-            'name' => 'Pizza turque au bœuf haché & persil',
-            'description' => 'Bœuf haché, persil, tomate, oignon, ail, poivron, piment, huile d\'olive, sel, poivre, pâte à pizza',
+            'name' => 'Pizza turque au bœuf haché',
+            'description' => 'Bœuf haché, persil, tomate, oignon, ail, poivron, piment, huile d\'olive',
             'status' => 'published',
             'date' => '2023-03-22',
             'url_image' => '/assets/images/menus/pizza-turque-boeuf-hache-persil.avif',
@@ -44,7 +44,7 @@ class MenuSeeder extends Seeder
 
         DB::table('menus')->insert([
             'name' => "Cuisse de poulet confite et salade d'automne",
-            'description' => 'Poulet, pomme de terre, carotte, oignon, ail, huile d\'olive, sel, poivre, salade, vinaigre balsamique, huile de noix, moutarde, sel, poivre',
+            'description' => 'Poulet, pomme de terre, carotte, oignon, ail, huile d\'olive, sel',
             'status' => 'published',
             'date' => '2022-04-21',
             'url_image' => '/assets/images/menus/cuisse-poulet-confite-salade-automne.avif',
