@@ -8,11 +8,11 @@
     >
         <h1 class="text-2xl font-semibold mb-4">Créer un menu</h1>
         <div class="flex flex-col mb-4">
-            <label for="url_image" class="mb-2"> Image du menu </label>
+            <label for="menu_image" class="mb-2"> Image du menu </label>
             <input
                 type="file"
-                id="url_image"
-                name="url_image"
+                id="menu_image"
+                name="menu_image"
                 @change="handleImageUpload"
                 class="border border-gray-400 p-2 rounded-md"
             />
@@ -46,7 +46,7 @@
                 <input
                     type="checkbox"
                     :id="category.name"
-                    :value="category.name"
+                    :value="category"
                     class="mr-2"
                     v-model="categories"
                 />
@@ -73,7 +73,7 @@
 
     <div class="w-full max-w-xs mx-auto p-4">
         <div class="bg-white rounded-lg shadow-md overflow-hidden card">
-            <img :src="url_image" class="w-full h-40 object-cover" />
+            <img :src="menu_image" class="w-full h-40 object-cover" />
             <div class="p-4">
                 <h3 class="text-xl font-semibold mb-2">{{ name }}</h3>
                 <p class="text-gray-500 text-sm mb-2">{{ description }}</p>
@@ -82,7 +82,7 @@
                     :key="category.id"
                     class="bg-gray-200 rounded-full text-xs font-semibold text-gray-700 mr-2 mb-2 px-3 py-1"
                 >
-                    {{ category }}
+                    {{ category.name }}
                 </span>
             </div>
         </div>
@@ -94,12 +94,13 @@ import { ref, onMounted } from "vue";
 
 import axios from "axios";
 import NavBarAdmin from "../NavBarAdmin.vue";
+import router from "../../router";
 
 const name = ref("");
 const description = ref("");
 const allCategories = ref([]);
 const categories = ref([]);
-const url_image = ref("");
+const menu_image = ref("");
 
 // Fonction pour récupérer les catégories la base de donnée
 const fetchCategories = async () => {
@@ -114,18 +115,20 @@ const fetchCategories = async () => {
 // Fonction pour récupérer l'image uploadée par l'utilisateur
 const handleImageUpload = (event) => {
     const file = event.target.files[0];
-    url_image.value = URL.createObjectURL(file);
+    menu_image.value = URL.createObjectURL(file);
 };
 
-// const createMenu = async () => {
-//     axios.post("/api/menus/createMenu", {
-//         name: name.value,
-//         description: description.value,
-//         status: status.value,
-//         categorie_id: categorie_id.value,
-//         url_image: url_image.value,
-//     });
-// };
+const createMenu = async () => {
+    await axios
+        .post("/api/menus/createMenu", {
+            name: name.value,
+            description: description.value,
+            categories: categories.value,
+        })
+        .then((response) => {
+            router.push({ name: "AdminMenu" });
+        });
+};
 
 // Appel de la fonction fetchCategories lors du montage du composant
 fetchCategories();

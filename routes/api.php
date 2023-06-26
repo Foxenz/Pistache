@@ -28,6 +28,7 @@ Route::controller(MenusController::class)->group(function () {
     Route::put('/menus/publishMenu/{id}', 'publishMenu');
     Route::put('/menus/archiveMenu/{id}', 'archiveMenu');
     Route::delete('/menus/deleteMenu/{id}', 'deleteMenu');
+    Route::post('/menus/createMenu', 'createMenu');
 });
 
 Route::controller(CategoriesController::class)->group(function () {
