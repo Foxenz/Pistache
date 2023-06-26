@@ -129,8 +129,12 @@ const deleteCategory = async (id) => {
 
 // Fonction pour créer une catégorie
 const createCategory = async (categoryName) => {
-    await axios.post("/api/categories/createCategory/" + categoryName.value),
-        fetchCategories();
+    await axios
+        .post("/api/categories/createCategory/" + categoryName.value)
+        .then((response) => {
+            categoryName.value = "";
+            fetchCategories();
+        });
 };
 
 // Appel de la fonction fetchCategories lors du montage du composant
