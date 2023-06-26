@@ -12,9 +12,6 @@
             <router-link class="hover:text-gray-300" to="/menu"
                 >Menu</router-link
             >
-            <router-link class="hover:text-gray-300" to="/about"
-                >A propos</router-link
-            >
             <router-link class="hover:text-gray-300" to="/contact"
                 >Contact</router-link
             >

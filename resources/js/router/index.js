@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import Home from "../components/pages/Home.vue";
 import Menu from "../components/pages/Menu.vue";
-import About from "../components/pages/About.vue";
 import Contact from "../components/pages/Contact.vue";
 import Login from "../components/pages/Login.vue";
 import MenuAdmin from "../components/pages/MenuAdmin.vue";
