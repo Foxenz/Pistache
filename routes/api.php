@@ -34,4 +34,5 @@ Route::controller(MenusController::class)->group(function () {
 Route::controller(CategoriesController::class)->group(function () {
     Route::get('/categories/getAllCategories', 'getAllCategories');
     Route::get('/categories/getCategoriesWithMenuId/{id}', 'getCategoriesWithMenuId');
+    Route::delete('/categories/deleteCategory/{id}', 'deleteCategory');
 });
