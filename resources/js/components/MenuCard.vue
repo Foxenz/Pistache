@@ -10,12 +10,12 @@
                 <h3 class="text-xl font-semibold mb-2">{{ name }}</h3>
                 <p class="text-gray-500 text-sm mb-2">{{ description }}</p>
                 <p v-if="isMenuAdmin" class="text-gray-500">
-                    {{ statusButton }}
+                    {{ statusButton == "published" ? "Publié" : "Archivé" }}
                 </p>
-                <p v-if="isMenuAdmin" class="text-gray-500">{{ date }}</p>
+                <p v-if="isMenuAdmin" class="text-gray-500">{{ localDate }}</p>
 
                 <!-- Affichage des categories en appelant la fonction getCategoriesWithMenuId -->
-                <div class="flex flex-wrap mt-2" v-if="!isMenuAdmin">
+                <div class="flex flex-wrap mt-2">
                     <span
                         v-for="categorie in categoriesOfMenu"
                         :key="categorie.id"
@@ -31,7 +31,7 @@
                 <button
                     @click="showConfirmation('archive', id)"
                     v-show="statusButton == 'published'"
-                    class="flex-1 bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none"
+                    class="flex-1 bg-orange-500 text-white py-2 px-4 rounded-md hover:bg-orange-600 focus:outline-none"
                 >
                     Archiver
                 </button>
@@ -123,6 +123,13 @@ const statusButton = ref(props.status);
 const showDialog = ref(false);
 const confirmationAction = ref("");
 const categoriesOfMenu = ref([]);
+const localDate = ref(
+    new Date(props.date).toLocaleDateString("fr-FR", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+    })
+);
 let menuId;
 
 // Fonction pour afficher la fenêtre de confirmation
