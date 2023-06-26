@@ -22,7 +22,7 @@ Pas encore disponible
 Clonez le projet
 
 ```bash
-  git clone https://github.com/foxenz/pistache.git
+  git clone https://github.com/Foxenz/Pistache.git
 ```
 
 <br />
