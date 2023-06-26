@@ -5,7 +5,7 @@
     <div class="flex justify-center">
         <router-link to="/create-menu/">
             <button
-                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4"
+                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4 mb-4"
             >
                 Ajouter un menu
             </button>
