@@ -7,16 +7,16 @@
         @submit.prevent="createMenu"
     >
         <h1 class="text-2xl font-semibold mb-4">Créer un menu</h1>
-        <!-- <div class="flex flex-col mb-4">
+        <div class="flex flex-col mb-4">
             <label for="url_image" class="mb-2"> Image du menu </label>
             <input
                 type="file"
                 id="url_image"
                 name="url_image"
-                v-on="url_image"
+                @change="handleImageUpload"
                 class="border border-gray-400 p-2 rounded-md"
             />
-        </div> -->
+        </div>
         <div class="flex flex-col mb-4">
             <label for="name" class="mb-2"> Nom du menu </label>
             <input
@@ -73,10 +73,7 @@
 
     <div class="w-full max-w-xs mx-auto p-4">
         <div class="bg-white rounded-lg shadow-md overflow-hidden card">
-            <img
-                src="../../../../public/assets/images/menus/bruschetta-chorizo-poivron.avif"
-                class="w-full h-40 object-cover"
-            />
+            <img :src="url_image" class="w-full h-40 object-cover" />
             <div class="p-4">
                 <h3 class="text-xl font-semibold mb-2">{{ name }}</h3>
                 <p class="text-gray-500 text-sm mb-2">{{ description }}</p>
@@ -102,6 +99,7 @@ const name = ref("");
 const description = ref("");
 const allCategories = ref([]);
 const categories = ref([]);
+const url_image = ref("");
 
 // Fonction pour récupérer les catégories la base de donnée
 const fetchCategories = async () => {
@@ -111,6 +109,12 @@ const fetchCategories = async () => {
     } catch (error) {
         console.error(error);
     }
+};
+
+// Fonction pour récupérer l'image uploadée par l'utilisateur
+const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    url_image.value = URL.createObjectURL(file);
 };
 
 // const createMenu = async () => {
