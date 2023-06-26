@@ -1,6 +1,17 @@
 <template>
     <NavBarAdmin />
 
+    <!-- Bouton pour ajouter un menu -->
+    <div class="flex justify-center">
+        <router-link to="/create-menu/">
+            <button
+                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4"
+            >
+                Ajouter un menu
+            </button>
+        </router-link>
+    </div>
+
     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <MenuCard
             v-for="menu in menus"
@@ -20,17 +31,6 @@
     <!-- Si aucun menu afficher un message au centre de la page -->
     <div v-if="menus.length === 0" class="flex justify-center">
         <p class="text-2xl">Plus aucun menu à afficher</p>
-    </div>
-
-    <!-- Bouton pour ajouter un menu -->
-    <div class="flex justify-center">
-        <router-link to="/create-menu/">
-            <button
-                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-            >
-                Ajouter un menu
-            </button>
-        </router-link>
     </div>
 </template>
 

@@ -126,7 +126,7 @@ const createMenu = async () => {
             categories: categories.value,
         })
         .then((response) => {
-            router.push({ name: "AdminMenu" });
+            router.push("/menu-admin");
         });
 };
 
