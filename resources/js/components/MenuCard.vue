@@ -8,6 +8,7 @@
             />
             <div class="p-4">
                 <h3 class="text-xl font-semibold mb-2">{{ name }}</h3>
+                <p class="text-gray-500 text-sm mb-2">{{ description }}</p>
                 <p v-if="isMenuAdmin" class="text-gray-500">
                     {{ statusButton }}
                 </p>
@@ -23,7 +24,6 @@
                         {{ categorie }}
                     </span>
                 </div>
-                
             </div>
 
             <!-- Boutons archiver, editer, supprimer seulement visible quand on est dans le menu admin -->
@@ -96,6 +96,10 @@ const props = defineProps({
         required: true,
     },
     name: {
+        type: String,
+        required: true,
+    },
+    description: {
         type: String,
         required: true,
     },

@@ -7,6 +7,7 @@ import Contact from "../components/pages/Contact.vue";
 import Login from "../components/pages/Login.vue";
 import MenuAdmin from "../components/pages/MenuAdmin.vue";
 import Category from "../components/pages/Category.vue";
+import EditMenu from "../components/pages/EditMenu.vue";
 
 const routes = [
     {
@@ -46,6 +47,14 @@ const routes = [
         path: "/category",
         name: "Category",
         component: Category,
+        meta: {
+            requiresAuth: true,
+        },
+    },
+    {
+        path: "/create-menu",
+        name: "CreateMenu",
+        component: EditMenu,
         meta: {
             requiresAuth: true,
         },

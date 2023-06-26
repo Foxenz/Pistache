@@ -13,7 +13,6 @@ class CategoriesController extends Controller
     {
         // Récuperer toutes les catégories
         $categories = Category::all();
-
         return response()->json($categories);
     }
 

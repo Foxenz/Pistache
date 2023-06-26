@@ -25,9 +25,9 @@
             :key="menu.id"
             :id="menu.id"
             :name="menu.name"
+            :description="menu.description"
             :status="menu.status"
             :date="menu.date"
-            :categorie_id="menu.categorie_id"
             :url_image="menu.url_image"
         />
     </section>
