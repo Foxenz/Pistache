@@ -25,25 +25,24 @@
         <div class="container mx-auto">
             <h2 class="text-2xl font-bold mb-4">Qui sommes-nous ?</h2>
             <p class="text-gray-700">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Voluptate odit vel architecto dolor ratione, molestias et
-                veritatis, neque expedita dicta soluta doloremque quaerat eius
-                eaque sed aut, placeat atque? Aliquid! Nemo molestias
-                voluptatibus quam deleniti dolores aperiam a veniam ex harum
-                alias aliquam sed accusantium, doloremque totam. Ex repellendus
-                eos dolores rem aspernatur autem quidem, ipsam nesciunt dolorum
-                blanditiis explicabo! Possimus ab, dicta quam quis, debitis
-                maiores numquam praesentium rerum fuga eaque quaerat excepturi
-                in facere neque, nisi mollitia? Fuga pariatur obcaecati
-                necessitatibus sint qui neque amet repellat sequi sit. Ipsam
-                placeat voluptates obcaecati quibusdam facilis voluptatibus
-                dolore earum odio repellendus veniam dolor quaerat deserunt sit
-                illo molestiae architecto quas non quis esse delectus, a odit?
-                Exercitationem veniam nisi quaerat! Magnam nobis optio
-                architecto voluptas minima possimus ex aspernatur necessitatibus
-                veritatis explicabo quo, suscipit iure sit! Aut accusamus
-                incidunt rem. Debitis minus blanditiis, ab mollitia aspernatur
-                sed neque amet laboriosam!
+                Bienvenue chez Pistache, un lieu enchanté où la gastronomie
+                rencontre l'élégance. Niché au cœur de la ville, notre
+                restaurant vous invite à un voyage culinaire inoubliable, où les
+                saveurs exquises et les présentations artistiques se marient
+                harmonieusement. Chez Pistache, chaque plat est un chef-d'œuvre
+                créé avec passion par notre talentueuse équipe de chefs.
+                Inspirés par les ingrédients frais et de saison, ils repoussent
+                les limites de la créativité culinaire pour vous offrir des
+                combinaisons audacieuses et des textures étonnantes. Que vous
+                soyez un amateur de viande tendre, un adepte des fruits de mer
+                délicats ou un passionné de plats végétariens inventifs, notre
+                menu varié saura satisfaire tous les palais. Lorsque vous
+                franchirez les portes de Pistache, vous serez accueilli par une
+                atmosphère chaleureuse et sophistiquée. Notre décor élégant et
+                contemporain crée un cadre idéal pour vos dîners intimes, vos
+                soirées entre amis ou vos repas d'affaires. Notre équipe
+                attentionnée veillera à ce que chaque détail soit pris en
+                compte, vous offrant un service impeccable et personnalisé.
             </p>
         </div>
     </section>
