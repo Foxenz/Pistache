@@ -1,6 +1,27 @@
 <template>
     <NabBarAdmin />
 
+    <!-- Section pour créer une catégorie, il suffit juste d'insérer un nom et cliquer sur le bouton d'ajout -->
+    <section class="flex flex-col justify-center items-center">
+        <div class="flex flex-col justify-center items-center">
+            <h1 class="text-3xl font-bold mb-4">Créer une catégorie</h1>
+            <div class="flex flex-col justify-center items-center">
+                <input
+                    type="text"
+                    class="border border-gray-400 rounded-md p-2 w-80"
+                    placeholder="Nom de la catégorie"
+                    v-model="categoryName"
+                />
+                <button
+                    @click="showConfirmation('create', categoryName)"
+                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4"
+                >
+                    Ajouter
+                </button>
+            </div>
+        </div>
+    </section>
+
     <!-- Pour chaque catégorie, afficher un cadre avec le nom de la categorie, avec un bouton d'edit et de suppression -->
     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <div
@@ -35,7 +56,9 @@
     >
         <div class="bg-white p-6 rounded shadow-lg">
             <h2 class="text-lg font-semibold mb-4">Confirmation</h2>
-            <p>Êtes-vous sûr de vouloir {{ confirmationAction }} le menu ?</p>
+            <p>
+                Êtes-vous sûr de vouloir {{ confirmationAction }} la catégorie ?
+            </p>
             <div class="mt-4 flex justify-end">
                 <button
                     @click="cancelConfirmation"
@@ -63,6 +86,7 @@ import NabBarAdmin from "../NavBarAdmin.vue";
 const categories = ref([]);
 const showDialog = ref(false);
 const confirmationAction = ref("");
+const categoryName = ref("");
 let categoryId = null;
 
 // Fonction pour récupérer les catégories la base de donnée
@@ -76,6 +100,8 @@ const showConfirmation = (action, id) => {
     if (action === "delete") {
         confirmationAction.value = "supprimer";
         categoryId = id;
+    } else if (action === "create") {
+        confirmationAction.value = "ajouter";
     }
     showDialog.value = true;
 };
@@ -90,6 +116,8 @@ const confirmAction = () => {
     showDialog.value = false;
     if (confirmationAction.value === "supprimer") {
         deleteCategory(categoryId);
+    } else if (confirmationAction.value === "ajouter") {
+        createCategory(categoryName);
     }
 };
 
@@ -97,6 +125,12 @@ const confirmAction = () => {
 const deleteCategory = async (id) => {
     await axios.delete("/api/categories/deleteCategory/" + id);
     fetchCategories();
+};
+
+// Fonction pour créer une catégorie
+const createCategory = async (categoryName) => {
+    await axios.post("/api/categories/createCategory/" + categoryName.value),
+        fetchCategories();
 };
 
 // Appel de la fonction fetchCategories lors du montage du composant

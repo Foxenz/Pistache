@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\MenuHasCategory;
+use Illuminate\Http\Request;
 
 
 class CategoriesController extends Controller
@@ -43,5 +44,14 @@ class CategoriesController extends Controller
         $category = Category::find($id);
         $category->delete();
         return response()->json('Category deleted');
+    }
+
+    public function createCategory($name)
+    {
+        // Créer une nouvelle catégorie avec le nom passé en paramètre
+        $category = new Category();
+        $category->name = $name;
+        $category->save();
+        return response()->json($category);
     }
 }
