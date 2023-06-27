@@ -18,8 +18,8 @@ class MenusController extends Controller
 
     public function getAllMenusForAdmin()
     {
-        // Récuperer tous les menus et les trier du plus récent au plus ancien
-        $menus = Menu::orderBy('date', 'desc')->get();
+        // Récuperer tous les menus et les trier du plus récent au plus ancien et de l'id le plus grand au plus petit
+        $menus = Menu::orderBy('date', 'desc')->orderBy('id', 'desc')->get();
         return response()->json($menus);
     }
 
