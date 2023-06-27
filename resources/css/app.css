@@ -4,3 +4,15 @@
     font-family: 'Playfair Display', serif;
 }
 
+.colorButton{
+    background-color: #E0B548;
+}
+
+.colorButton:hover{
+    transition: 0.2s;
+    background-color: #a88733;
+}
+
+.hoverNavBarLink:hover {
+    color: #E0B548;
+}

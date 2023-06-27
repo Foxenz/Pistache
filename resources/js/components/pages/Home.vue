@@ -12,7 +12,7 @@
             <h1 class="text-5xl mb-8">Pistache</h1>
             <router-link to="/menu">
                 <button
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    class="colorButton text-white font-bold py-2 px-4 rounded"
                 >
                     Voir le menu
                 </button>
@@ -77,7 +77,7 @@
             <h2 class="text-2xl font-bold mb-4">Contactez-nous</h2>
             <router-link to="/contact">
                 <button
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    class="colorButton text-white font-bold py-2 px-4 rounded"
                 >
                     Contact
                 </button>
@@ -93,4 +93,6 @@ import NavBar from "../NavBar.vue";
 import Footer from "../Footer.vue";
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

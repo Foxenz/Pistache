@@ -9,10 +9,10 @@
             /></a>
         </div>
         <div class="flex items-center space-x-4">
-            <router-link class="hover:text-gray-300" to="/menu"
+            <router-link class="hoverNavBarLink" to="/menu"
                 >Menu</router-link
             >
-            <router-link class="hover:text-gray-300" to="/contact"
+            <router-link class="hoverNavBarLink" to="/contact"
                 >Contact</router-link
             >
         </div>

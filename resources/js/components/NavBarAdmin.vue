@@ -9,14 +9,14 @@
             /></a>
         </div>
         <div class="flex items-center space-x-4">
-            <router-link class="hover:text-gray-300" to="/menu-admin"
+            <router-link class="hoverNavBarLink" to="/menu-admin"
                 >Menu</router-link
             >
-            <router-link class="hover:text-gray-300" to="/category"
+            <router-link class="hoverNavBarLink" to="/category"
                 >Catégorie</router-link
             >
             <!-- Bouton de déconnexion -->
-            <button class="hover:text-gray-300" @click="logout">
+            <button class="hoverNavBarLink" @click="logout">
                 Déconnexion
             </button>
         </div>
