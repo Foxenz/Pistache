@@ -57,12 +57,14 @@
         </div>
         <div class="flex mb-4 mt-4 mx-2 space-x-4">
             <button
+                @click="status = 'archived'"
                 type="submit"
                 class="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none"
             >
                 Sauvegarder
             </button>
             <button
+                @click="status = 'published'"
                 type="submit"
                 class="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none"
             >
@@ -101,6 +103,7 @@ const description = ref("");
 const allCategories = ref([]);
 const categories = ref([]);
 const menu_image = ref("");
+const status = ref("");
 
 // Fonction pour récupérer les catégories la base de donnée
 const fetchCategories = async () => {
@@ -124,6 +127,7 @@ const createMenu = async () => {
             name: name.value,
             description: description.value,
             categories: categories.value,
+            status: status.value,
         })
         .then((response) => {
             router.push("/menu-admin");

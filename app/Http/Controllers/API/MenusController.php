@@ -77,7 +77,7 @@ class MenusController extends Controller
         $menu = new Menu();
         $menu->name = $request->name;
         $menu->description = $request->description;
-        $menu->status = "published";
+        $menu->status = $request->status;
         $menu->date = date('Y-m-d H:i:s');
         $menu->url_image = "assets/images/menus/default.png";
         $menu->save();
