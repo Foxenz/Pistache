@@ -16,9 +16,7 @@
                 >Catégorie</router-link
             >
             <!-- Bouton de déconnexion -->
-            <button class="hoverNavBarLink" @click="logout">
-                Déconnexion
-            </button>
+            <button class="hoverNavBarLink" @click="logout">Déconnexion</button>
         </div>
     </nav>
 </template>
@@ -29,6 +27,6 @@ import router from "../router";
 // Déconnecte l'utilisateur
 const logout = () => {
     sessionStorage.removeItem("token");
-    router.push("/login");
+    router.push("/");
 };
 </script>
