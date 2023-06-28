@@ -6,7 +6,7 @@ import Contact from "../components/pages/Contact.vue";
 import Login from "../components/pages/Login.vue";
 import MenuAdmin from "../components/pages/MenuAdmin.vue";
 import Category from "../components/pages/Category.vue";
-import EditMenu from "../components/pages/EditMenu.vue";
+import MenuForm from "../components/pages/MenuForm.vue";
 
 const routes = [
     {
@@ -48,7 +48,7 @@ const routes = [
     {
         path: "/create-menu",
         name: "CreateMenu",
-        component: EditMenu,
+        component: MenuForm,
         meta: {
             requiresAuth: true,
         },
