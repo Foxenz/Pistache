@@ -87,6 +87,14 @@ Effectuez les migrations (Permet de créer les tables de la base de données et 
 
 <br />
 
+Créer le lien symbolique vers storage/public (Permet d'afficher les images uploadées)
+
+```bash
+  php artisan storage:link
+```
+
+<br />
+
 Démarrez le projet en dev
 
 ```bash
