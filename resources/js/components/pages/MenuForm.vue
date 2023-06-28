@@ -1,10 +1,10 @@
 <template>
     <NavBarAdmin />
-
-    <!-- Formulaire pour créer un menu, l'utilisateur doit rentrer le nom du menu, sa description, son status entre "archived" et "published", ses catégories et l'upload d'une image  -->
     <form
         class="flex flex-col items-center justify-center"
-        @submit.prevent="createMenu"
+        @submit.prevent="
+            router.currentRoute.value.params.id ? updateMenu() : createMenu()
+        "
     >
         <h1 class="text-2xl font-semibold mb-4">Créer un menu</h1>
         <div class="flex flex-col mb-4">
@@ -46,7 +46,7 @@
                 <input
                     type="checkbox"
                     :id="category.name"
-                    :value="category"
+                    :value="category.id"
                     class="mr-2"
                     v-model="categories"
                 />
@@ -55,7 +55,10 @@
                 </label>
             </div>
         </div>
-        <div class="flex mb-4 mt-4 mx-2 space-x-4">
+        <div
+            v-if="!router.currentRoute.value.params.id"
+            class="flex mb-4 mt-4 mx-2 space-x-4"
+        >
             <button
                 @click="status = 'archived'"
                 type="submit"
@@ -71,6 +74,14 @@
                 Publier
             </button>
         </div>
+        <div v-else class="flex mb-4 mt-4 mx-2 space-x-4">
+            <button
+                type="submit"
+                class="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none"
+            >
+                Sauvegarder
+            </button>
+        </div>
     </form>
 
     <div class="w-full max-w-xs mx-auto p-4">
@@ -84,7 +95,7 @@
                     :key="category.id"
                     class="bg-gray-200 rounded-full text-xs font-semibold text-gray-700 mr-2 mb-2 px-3 py-1"
                 >
-                    {{ category.name }}
+                    {{ allCategories.find((c) => c.id === category).name }}
                 </span>
             </div>
         </div>
@@ -148,6 +159,42 @@ const createMenu = async () => {
         });
 };
 
-// Appel de la fonction fetchCategories lors du montage du composant
-fetchCategories();
+const getMenuById = async () => {
+    await axios
+        .get("/api/menus/getMenuById/" + router.currentRoute.value.params.id)
+        .then((response) => {
+            name.value = response.data.menu.name;
+            description.value = response.data.menu.description;
+            categories.value = response.data.categories;
+            menu_image.value = response.data.menu.url_image;
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+};
+
+const updateMenu = async () => {
+    await axios
+        .put("/api/menus/updateMenu/", {
+            id: router.currentRoute.value.params.id,
+            name: name.value,
+            description: description.value,
+            categories: categories.value,
+            menu_image: menu_image.value,
+        })
+        .then((response) => {
+            router.push("/menu-admin");
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+};
+
+onMounted(() => {
+    if (router.currentRoute.value.params.id) {
+        getMenuById();
+    }
+
+    fetchCategories();
+});
 </script>

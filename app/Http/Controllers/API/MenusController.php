@@ -87,15 +87,13 @@ class MenusController extends Controller
         }
         $menu->save();
 
-        // Pour chaque categorie créer un nouveau menu_has_category avec les données envoyées en paramètre
+        // Pour chaque id de la categorie créer un nouveau menu_has_category avec les données envoyées en paramètre
         foreach ($request->categories as $category) {
-            $category_id = $category['id']; // Récupérer l'ID de la catégorie
             $menuHasCategory = new MenuHasCategory();
             $menuHasCategory->menu_id = $menu->id;
-            $menuHasCategory->category_id = $category_id; // Affecter l'ID de la catégorie à menuHasCategory->category_id
+            $menuHasCategory->category_id = $category;
             $menuHasCategory->save();
         }
-
         return response()->json($menu);
     }
 
@@ -116,5 +114,47 @@ class MenusController extends Controller
         }
 
         return response()->json(['message' => 'Erreur lors de l\'upload de l\'image'], 400);
+    }
+
+    public function getMenuById($id)
+    {
+        // Récuperer le menu dont l'id est passé en paramètre
+        $menu = Menu::find($id);
+
+        // Récuperer les categories du menu
+        $menuHasCategory = MenuHasCategory::where('menu_id', $id)->get();
+        $categories = [];
+        foreach ($menuHasCategory as $menus) {
+            array_push($categories, $menus->category_id);
+        }
+
+        // Renvoyer le menu et les categories
+        return response()->json(['menu' => $menu, 'categories' => $categories]);
+    }
+
+    public function updateMenu(Request $request)
+    {
+        // Récuperer le menu dont l'id est passé en paramètre
+        $menu = Menu::find($request->id);
+        $menu->name = $request->name;
+        $menu->description = $request->description;
+        $menu->date = date('Y-m-d H:i:s');
+        $menu->url_image = $request->menu_image;
+        $menu->save();
+
+        // Supprimer les menu_has_category dont le menu_id est passé en paramètre
+        $menuHasCategory = MenuHasCategory::where('menu_id', $request->id)->get();
+        foreach ($menuHasCategory as $menu_) {
+            $menu_->delete();
+        }
+
+        // Pour chaque id de la categorie créer un nouveau menu_has_category avec les données envoyées en paramètre
+        foreach ($request->categories as $category) {
+            $menuHasCategory = new MenuHasCategory();
+            $menuHasCategory->menu_id = $menu->id;
+            $menuHasCategory->category_id = $category;
+            $menuHasCategory->save();
+        }
+        return response()->json($menu);
     }
 }

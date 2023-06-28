@@ -30,6 +30,8 @@ Route::controller(MenusController::class)->group(function () {
     Route::delete('/menus/deleteMenu/{id}', 'deleteMenu');
     Route::post('/menus/createMenu', 'createMenu');
     Route::post('menus/uploadImage', 'uploadImage');
+    Route::get('/menus/getMenuById/{id}', 'getMenuById');
+    Route::put('/menus/updateMenu', 'updateMenu');
 });
 
 Route::controller(CategoriesController::class)->group(function () {

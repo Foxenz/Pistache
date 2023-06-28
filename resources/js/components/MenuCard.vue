@@ -42,11 +42,21 @@
                 >
                     Publier
                 </button>
-                <button
-                    class="flex-1 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none"
+
+                <router-link
+                    :to="{
+                        name: 'EditMenu',
+                        params: {
+                            id: id,
+                        },
+                    }"
                 >
-                    Editer
-                </button>
+                    <button
+                        class="flex-1 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none"
+                    >
+                        Editer
+                    </button>
+                </router-link>
                 <button
                     @click="showConfirmation('delete', id)"
                     class="flex-1 bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none"

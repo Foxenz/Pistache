@@ -53,6 +53,14 @@ const routes = [
             requiresAuth: true,
         },
     },
+    {
+        path: "/edit-menu/:id",
+        name: "EditMenu",
+        component: MenuForm,
+        meta: {
+            requiresAuth: true,
+        },
+    },
 ];
 
 const router = createRouter({
