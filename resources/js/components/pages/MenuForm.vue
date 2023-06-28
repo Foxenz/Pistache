@@ -102,7 +102,7 @@ const name = ref("");
 const description = ref("");
 const allCategories = ref([]);
 const categories = ref([]);
-const menu_image = ref("");
+const menu_image = ref("/assets/images/menus/default.png");
 const status = ref("");
 
 // Fonction pour récupérer les catégories la base de donnée
@@ -118,7 +118,20 @@ const fetchCategories = async () => {
 // Fonction pour récupérer l'image uploadée par l'utilisateur
 const handleImageUpload = (event) => {
     const file = event.target.files[0];
-    menu_image.value = URL.createObjectURL(file);
+    const formData = new FormData();
+    formData.append("image", file);
+
+    // Envoi de la requête POST vers l'API pour uploader l'image
+    axios
+        .post("/api/menus/uploadImage", formData)
+        .then((response) => {
+            // Récupération de l'URL de l'image depuis la réponse de l'API
+            const imageUrl = response.data.imageUrl;
+            menu_image.value = imageUrl;
+        })
+        .catch((error) => {
+            console.error(error);
+        });
 };
 
 const createMenu = async () => {
@@ -128,6 +141,7 @@ const createMenu = async () => {
             description: description.value,
             categories: categories.value,
             status: status.value,
+            menu_image: menu_image.value,
         })
         .then((response) => {
             router.push("/menu-admin");

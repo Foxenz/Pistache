@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Menu;
 use App\Models\MenuHasCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MenusController extends Controller
 {
@@ -79,7 +80,11 @@ class MenusController extends Controller
         $menu->description = $request->description;
         $menu->status = $request->status;
         $menu->date = date('Y-m-d H:i:s');
-        $menu->url_image = "assets/images/menus/default.png";
+        if ($request->menu_image) {
+            $menu->url_image = $request->menu_image;
+        } else {
+            $menu->url_image = 'assets/images/menus/default.png';
+        }
         $menu->save();
 
         // Pour chaque categorie créer un nouveau menu_has_category avec les données envoyées en paramètre
@@ -92,5 +97,24 @@ class MenusController extends Controller
         }
 
         return response()->json($menu);
+    }
+
+    public function uploadImage(Request $request)
+    {
+        if ($request->hasFile('image')) {
+            // Vérifiez si le fichier a été correctement téléchargé
+            if ($request->file('image')->isValid()) {
+                // Récupérer le nom du fichier
+                $OriginalName = $request->file('image')->getClientOriginalName();
+
+                // Utiliser le nom du fichier et le stocker dans le dossier "assets/images/menus/"
+                $path = $request->file('image')->storeAs('public/assets/images/menus', $OriginalName);
+
+                // Renvoyer le chemin de l'image
+                return response()->json(['imageUrl' => Storage::url($path)]);
+            }
+        }
+
+        return response()->json(['message' => 'Erreur lors de l\'upload de l\'image'], 400);
     }
 }
